@@ -1,0 +1,238 @@
+/**
+ * ResultScreen Styles
+ *
+ * Story 8-6: 결과 화면 (Result Screen)
+ * 픽셀 아트 스타일: 직각, 고전 게임 색감
+ * z-index: 1000
+ */
+
+/* 오버레이 배경 */
+.result-screen__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  animation: result-screen-fade-in 0.3s step-end;
+}
+
+/* 카드 본체 */
+.result-screen {
+  width: 90%;
+  max-width: 500px;
+  padding: 32px 24px;
+  text-align: center;
+  background-color: #1a1a36;
+  border: 3px solid #ffd700;
+  box-shadow: 6px 6px 0 #6b5000;
+  animation: result-screen-card-in 0.3s ease-out;
+}
+
+/* 헤더 */
+.result-screen__header {
+  margin-bottom: 8px;
+}
+
+.result-screen__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8888aa;
+  margin: 0 0 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.result-screen__winner {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffd700;
+  margin: 0 0 8px;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 0 #6b5000;
+}
+
+.result-screen__reason {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e0d8c0;
+  margin: 0;
+}
+
+/* 구분선 */
+.result-screen__divider {
+  border: none;
+  border-top: 2px solid #3a3a5c;
+  margin: 20px 0;
+}
+
+/* 통계 */
+.result-screen__stats {
+  margin-bottom: 24px;
+}
+
+.result-screen__stats-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #8888aa;
+  margin: 0 0 12px;
+  letter-spacing: 0.1em;
+}
+
+/* 통계 테이블 */
+.result-screen__table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e0d8c0;
+  font-size: 0.875rem;
+}
+
+.result-screen__table th {
+  font-weight: 600;
+  color: #8888aa;
+  padding: 8px 4px;
+  border-bottom: 2px solid #3a3a5c;
+  text-align: center;
+}
+
+.result-screen__table th:first-child {
+  text-align: left;
+}
+
+.result-screen__table td {
+  padding: 8px 4px;
+  border-bottom: 1px solid #2a2a4a;
+  text-align: center;
+}
+
+.result-screen__table td:first-child {
+  text-align: left;
+  color: #8888aa;
+}
+
+.result-screen__table-center {
+  text-align: center;
+}
+
+/* 버튼 영역 */
+.result-screen__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* 공통 버튼 */
+.result-screen__btn {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.1s step-end;
+  border: 3px solid transparent;
+  letter-spacing: 0.05em;
+}
+
+.result-screen__btn:active {
+  transform: translate(2px, 2px);
+}
+
+/* 다시 시작 (주요 CTA) */
+.result-screen__btn--restart {
+  background-color: #ffd700;
+  color: #1a1a2e;
+  border-color: #b8860b;
+  box-shadow: 3px 3px 0 #6b5000;
+}
+
+.result-screen__btn--restart:hover {
+  background-color: #e6c200;
+}
+
+.result-screen__btn--restart:active {
+  box-shadow: 1px 1px 0 #6b5000;
+}
+
+.result-screen__btn--restart:focus-visible {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+}
+
+/* 메인 메뉴 (보조 CTA) */
+.result-screen__btn--menu {
+  background-color: transparent;
+  color: #ffd700;
+  border-color: #ffd700;
+  box-shadow: 3px 3px 0 #6b5000;
+}
+
+.result-screen__btn--menu:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.result-screen__btn--menu:active {
+  box-shadow: 1px 1px 0 #6b5000;
+}
+
+.result-screen__btn--menu:focus-visible {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+}
+
+/* 애니메이션 */
+@keyframes result-screen-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes result-screen-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 모바일: 전체 화면 */
+@media (max-width: 430px) {
+  .result-screen {
+    width: 100%;
+    max-width: none;
+    min-height: 100dvh;
+    border: none;
+    border-top: 3px solid #ffd700;
+    border-bottom: 3px solid #ffd700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: none;
+    padding: calc(24px + env(safe-area-inset-top, 0px)) calc(16px + env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) calc(16px + env(safe-area-inset-left, 0px));
+  }
+}
+
+/* 데스크톱 */
+@media (min-width: 1024px) {
+  .result-screen {
+    max-width: 500px;
+    padding: 40px 32px;
+  }
+}
+
+/* 모션 감소 */
+@media (prefers-reduced-motion: reduce) {
+  .result-screen__overlay,
+  .result-screen {
+    animation: none;
+  }
+}

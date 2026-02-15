@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes" />
+    <title>오호대장군 - Five Tiger Generals</title>
+    <style>
+      /* DungGeunMo 픽셀 폰트 (둥근모꼴) */
+      @font-face {
+        font-family: 'DungGeunMo';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body {
+        height: 100%;
+        overflow: hidden;
+        background-color: #1a1a2e;
+        color: #eee;
+        font-family: 'DungGeunMo', monospace;
+        /* 픽셀 폰트 렌더링 최적화 */
+        -webkit-font-smoothing: none;
+        -moz-osx-font-smoothing: unset;
+        text-rendering: optimizeSpeed;
+        /* Story 8-7 AC7: 반응형 폰트 크기 (16px 기준 픽셀 폰트) */
+        font-size: clamp(14px, 2vw + 10px, 18px);
+        /* Story 8-7 AC6: safe-area 패딩 */
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        padding-left: env(safe-area-inset-left, 0px);
+        padding-right: env(safe-area-inset-right, 0px);
+      }
+      /* Story 8-7 AC8: 모션 감소 선호 시 전역 애니메이션 비활성화 */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+      #root {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

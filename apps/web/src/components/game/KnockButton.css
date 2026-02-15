@@ -1,0 +1,142 @@
+/**
+ * KnockButton Styles
+ *
+ * Story 6-1: 노크 행동 (Knock Action)
+ * 픽셀 아트 스타일: 직각, 단색, 고전 게임 황금색
+ */
+
+.knock-button {
+  /* 최소 터치 타겟 */
+  min-width: var(--game-btn-min-size);
+  min-height: var(--game-btn-min-size);
+  padding: var(--game-btn-padding);
+
+  /* 레이아웃 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--game-gap-sm);
+
+  /* 픽셀 스타일 */
+  font-family: inherit;
+  font-size: var(--game-font-md);
+  font-weight: bold;
+  border: var(--game-btn-border-width) solid var(--game-accent-dark);
+  cursor: pointer;
+
+  /* 황금색 배경 */
+  background-color: #d4a017;
+  color: #1a1a2e;
+  opacity: 1;
+
+  /* 픽셀 그림자 (오프셋만) */
+  box-shadow: var(--game-btn-shadow-offset) var(--game-btn-shadow-offset) 0 #6b5000;
+
+  /* 전환 */
+  transition: all 0.1s step-end;
+}
+
+/* 호버 상태 */
+.knock-button:not(:disabled):hover {
+  background-color: #e6b422;
+  border-color: #daa520;
+}
+
+/* 클릭 상태 - 눌림 효과 */
+.knock-button:not(:disabled):active {
+  background-color: #c49200;
+  border-color: var(--game-accent-dark);
+  box-shadow: 1px 1px 0 #6b5000;
+  transform: translate(var(--game-btn-press-offset), var(--game-btn-press-offset));
+}
+
+/* 비활성화 */
+.knock-button:disabled {
+  cursor: not-allowed;
+  background-color: var(--game-btn-disabled-bg);
+  border-color: var(--game-btn-disabled-border);
+  color: var(--game-btn-disabled-text);
+  opacity: var(--game-btn-disabled-opacity);
+  box-shadow: none;
+}
+
+/* 노크 아이콘 */
+.knock-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* 노크 텍스트 */
+.knock-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* 노크 카운트 도트 (사각형 픽셀) */
+.knock-count-dots {
+  display: flex;
+  gap: var(--game-gap-sm);
+  align-items: center;
+}
+
+.knock-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 0; /* 픽셀: 사각형 */
+  border: 2px solid #1a1a2e;
+  background-color: transparent;
+  transition: background-color 0.15s step-end;
+}
+
+.knock-dot.filled {
+  background-color: #1a1a2e;
+  animation: knock-dot-pulse 0.3s step-end;
+}
+
+/* 카운트 텍스트 */
+.knock-count-text {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+/* 카운트 있을 때 강조 */
+.knock-button.has-count {
+  animation: knock-glow 2s step-end infinite;
+}
+
+/* 비활성화 도트 */
+.knock-button:disabled .knock-dot {
+  border-color: var(--game-border-strong);
+}
+
+.knock-button:disabled .knock-dot.filled {
+  background-color: var(--game-border-strong);
+}
+
+/* 도트 펄스 */
+@keyframes knock-dot-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* 접근성: 모션 감소 */
+@media (prefers-reduced-motion: reduce) {
+  .knock-button,
+  .knock-button.has-count,
+  .knock-dot,
+  .knock-dot.filled {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* 글로우 */
+@keyframes knock-glow {
+  0%, 100% {
+    box-shadow: var(--game-btn-shadow-offset) var(--game-btn-shadow-offset) 0 #6b5000;
+  }
+  50% {
+    box-shadow: var(--game-btn-shadow-offset) var(--game-btn-shadow-offset) 0 #6b5000, 0 0 8px rgba(212, 160, 23, 0.6);
+  }
+}

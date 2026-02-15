@@ -1,0 +1,25 @@
+/**
+ * TurnEndButton Styles
+ *
+ * Story 5-1: 턴 종료 버튼 (Turn End Button)
+ * 색상만 정의 — 공통 레이아웃은 .action-btn (BottomActionBar.css)
+ */
+
+.turn-end-button {
+  /* 파란색 */
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #1a4499;
+  box-shadow: var(--game-btn-shadow-offset) var(--game-btn-shadow-offset) 0 #0e2a6b;
+}
+
+/* 호버 */
+.turn-end-button:not(:disabled):hover {
+  background-color: #1d4ed8;
+}
+
+/* 클릭 - 눌림 */
+.turn-end-button:not(:disabled):active {
+  background-color: #1e40af;
+  box-shadow: 1px 1px 0 #0e2a6b;
+}

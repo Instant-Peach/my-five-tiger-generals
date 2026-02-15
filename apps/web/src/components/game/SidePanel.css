@@ -1,0 +1,156 @@
+/**
+ * SidePanel Styles
+ *
+ * 삼국지 영걸전 스타일 우측 사이드바
+ * P2 정보 / 장수 정보(선택시) / P1 정보 / 턴 상태 수직 배치
+ *
+ * 픽셀 아트 스타일: 직각 테두리, 단색 배경, 고전 게임 색감
+ * BEM 네이밍: side-panel
+ */
+
+/* 사이드바 전체 */
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: var(--game-text-primary);
+  font-size: 0.8rem;
+  image-rendering: pixelated;
+}
+
+/* =============================================
+ * 플레이어 카드
+ * ============================================= */
+.side-panel__player-card {
+  padding: var(--game-gap-md) 10px;
+  border-bottom: 2px solid var(--game-border-base);
+  transition: background-color 0.15s step-end;
+}
+
+.side-panel__player-card--active {
+  background: rgba(255, 215, 0, 0.15);
+}
+
+.side-panel__player-card--p1 {
+  border-left: 4px solid var(--game-player1);
+}
+
+.side-panel__player-card--p1.side-panel__player-card--active {
+  border-left-color: var(--game-accent);
+  border-left-style: solid; /* 색맹 지원 */
+}
+
+.side-panel__player-card--p2 {
+  border-left: 4px solid var(--game-player2);
+}
+
+.side-panel__player-card--p2.side-panel__player-card--active {
+  border-left-color: var(--game-accent);
+  border-left-style: dashed; /* 색맹 지원 */
+}
+
+.side-panel__player-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--game-gap-sm);
+}
+
+.side-panel__player-icon {
+  font-size: 0.65rem;
+  line-height: 1;
+}
+
+.side-panel__player-card--p1 .side-panel__player-icon {
+  color: var(--game-player1-light);
+}
+
+.side-panel__player-card--p2 .side-panel__player-icon {
+  color: var(--game-player2-light);
+}
+
+.side-panel__player-name {
+  font-weight: bold;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+/* =============================================
+ * 노크 도트 (사각형 픽셀 스타일)
+ * ============================================= */
+.side-panel__knock-dots {
+  display: flex;
+  gap: var(--game-gap-sm);
+  align-items: center;
+}
+
+.side-panel__knock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 0; /* 픽셀: 사각형 */
+  background-color: var(--game-bg-raised);
+  border: 1px solid var(--game-border-strong);
+  transition: background-color 0.15s step-end;
+}
+
+.side-panel__knock-dot--filled {
+  background-color: var(--game-accent);
+  border-color: var(--game-accent-dark);
+}
+
+/* =============================================
+ * 장수 목록 (5명)
+ * ============================================= */
+.side-panel__general-list {
+  display: flex;
+  border-bottom: 2px solid var(--game-border-base);
+}
+
+/* =============================================
+ * 장수 정보 슬롯
+ * ============================================= */
+.side-panel__general-slot {
+  flex: 1;
+  min-height: 0;
+  border-bottom: 2px solid var(--game-border-base);
+  overflow: hidden;
+}
+
+/* 빈 상태 */
+.side-panel__general-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 80px;
+  padding: var(--game-gap-lg);
+}
+
+.side-panel__general-empty-text {
+  color: var(--game-text-faint);
+  font-size: 0.7rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* =============================================
+ * 태블릿 (431px ~ 1023px) - 더 컴팩트
+ * ============================================= */
+@media (min-width: 431px) and (max-width: 1023px) {
+  .side-panel {
+    font-size: 0.75rem;
+  }
+
+  .side-panel__player-card {
+    padding: 6px var(--game-gap-md);
+  }
+}
+
+/* 모션 감소 선호 */
+@media (prefers-reduced-motion: reduce) {
+  .side-panel__player-card,
+  .side-panel__knock-dot {
+    transition: none;
+  }
+}

@@ -1,0 +1,165 @@
+# generated: 2026-02-03
+# project: five-tiger-generals
+# tracking_system: file-system
+# story_location: {project-root}/_bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-02-03
+project: five-tiger-generals
+tracking_system: file-system
+story_location: "{project-root}/_bmad-output/implementation-artifacts"
+
+development_status:
+  # ========================================
+  # Epic 1: 보드 시스템 (Board System)
+  # ========================================
+  epic-1: done
+  1-1-triangle-board-display: done
+  1-2-tile-selection: done
+  1-3-tile-highlight: done
+  1-4-responsive-layout: done
+  1-5-zone-visual-distinction: done
+  1-6-tile-coordinate-system: done
+  epic-1-retrospective: done
+
+  # ========================================
+  # Epic 2: 장수 시스템 (General System)
+  # ========================================
+  epic-2: done
+  2-1-general-placement: done
+  2-2-general-selection: done
+  2-3-general-stats-display: done
+  2-4-player-color-distinction: done
+  2-5-troop-visual-display: done
+  epic-2-retrospective: done
+
+  # ========================================
+  # Epic 3: 이동 시스템 (Movement System)
+  # ========================================
+  epic-3: done
+  3-1-moveable-tiles-display: done
+  3-2-general-movement: done
+  3-3-movement-animation: done
+  3-4-path-blocking: done
+  3-5-path-preview: done
+  epic-3-retrospective: done
+
+  # ========================================
+  # Epic 4: 전투 시스템 (Combat System)
+  # ========================================
+  epic-4: done
+  4-1-adjacent-attack: done
+  4-2-attack-direction-judgment: done
+  4-3-directional-damage-calculation: done
+  4-4-troop-reduction: done
+  4-5-general-out-handling: done
+  4-6-combat-feedback: done
+  epic-4-retrospective: done
+
+  # ========================================
+  # Epic 5: 턴 관리 (Turn Management)
+  # ========================================
+  epic-5: done
+  5-1-turn-end-button: done
+  5-2-current-turn-display: done
+  5-3-sixty-second-timer: done
+  5-4-timer-auto-end: done
+  epic-5-retrospective: done
+
+  # ========================================
+  # Epic 6: 승리 조건 (Victory Conditions)
+  # ========================================
+  epic-6: done
+  6-1-knock-action: done
+  6-2-triple-knock-victory: done
+  6-3-annihilation-victory: done
+  6-4-collapse-victory: done
+  6-5-surrender: done
+  epic-6-retrospective: done
+
+  # ========================================
+  # Epic 7: 책략 시스템 (Tactic System)
+  # ========================================
+  epic-7: backlog
+  7-1-tactic-selection-menu: backlog
+  7-2-tactic-strike: backlog
+  7-3-tactic-breakthrough: backlog
+  7-4-tactic-provocation: backlog
+  7-5-tactic-recruitment: backlog
+  7-6-tactic-ambush: backlog
+  7-7-tactic-fire-attack: backlog
+  7-8-other-field-tactics: backlog
+  7-9-other-office-tactics: backlog
+  7-10-installation-tactic-effects: backlog
+  epic-7-retrospective: optional
+
+  # ========================================
+  # Epic 8: UI/UX
+  # ========================================
+  epic-8: done
+  8-1-main-menu: done
+  8-2-game-hud: done
+  8-3-general-info-panel: done
+  8-4-tactic-selection-ui: done
+  8-5-settings-menu: done
+  8-6-result-screen: done
+  8-7-responsive-ui: done
+  8-8-accessibility-touch-target: done
+  epic-8-retrospective: done
+
+  # ========================================
+  # Epic 9: 멀티플레이어 (Multiplayer)
+  # ========================================
+  epic-9: backlog
+  9-1-online-match-start: backlog
+  9-2-matchmaking: backlog
+  9-3-game-state-sync: backlog
+  9-4-turn-sync: backlog
+  9-5-opponent-action-display: backlog
+  9-6-reconnection-attempt: backlog
+  9-7-reconnection-failure-handling: backlog
+  9-8-private-match: backlog
+  9-9-matching-cancel: backlog
+  9-10-network-latency-management: backlog
+  epic-9-retrospective: optional
+
+  # ========================================
+  # Epic 10: 계정/랭킹 (Account/Ranking)
+  # ========================================
+  epic-10: backlog
+  10-1-social-login: backlog
+  10-2-guest-play: backlog
+  10-3-elo-change: backlog
+  10-4-tier-determination: backlog
+  10-5-match-history: backlog
+  10-6-leaderboard: backlog
+  10-7-elo-based-matching: backlog
+  epic-10-retrospective: optional

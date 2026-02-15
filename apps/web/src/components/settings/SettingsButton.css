@@ -1,0 +1,62 @@
+/**
+ * SettingsButton Styles
+ *
+ * Story 8-5: 설정 메뉴 (Settings Menu)
+ * BEM 네이밍: settings-button
+ */
+
+/* 공통 버튼 스타일 */
+.settings-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 게임 중 HUD 스타일 */
+.settings-button--game {
+  background-color: #4a4a5a;
+  color: #ffffff;
+}
+
+.settings-button--game:hover {
+  background-color: #5a5a6a;
+}
+
+.settings-button--game:active {
+  background-color: #3a3a4a;
+}
+
+/* 메인 메뉴 스타일 */
+.settings-button--menu {
+  background-color: transparent;
+  color: #aaa;
+}
+
+.settings-button--menu:hover {
+  color: #ffd700;
+}
+
+.settings-button--menu:active {
+  color: #b8960b;
+}
+
+/* 기어 아이콘 */
+.settings-button__icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* 메뉴 버튼 라벨 텍스트 */
+.settings-button__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}

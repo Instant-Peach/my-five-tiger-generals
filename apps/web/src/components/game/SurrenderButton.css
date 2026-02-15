@@ -1,0 +1,25 @@
+/**
+ * SurrenderButton Styles
+ *
+ * Story 6-5: 항복 (Surrender)
+ * 색상만 정의 — 공통 레이아웃은 .action-btn (BottomActionBar.css)
+ */
+
+.surrender-button {
+  /* 위험 빨간색 */
+  background-color: #cc2222;
+  color: #ffffff;
+  border-color: #991111;
+  box-shadow: var(--game-btn-shadow-offset) var(--game-btn-shadow-offset) 0 #660000;
+}
+
+/* 호버 */
+.surrender-button:not(:disabled):hover {
+  background-color: #aa1111;
+}
+
+/* 클릭 - 눌림 */
+.surrender-button:not(:disabled):active {
+  background-color: #881111;
+  box-shadow: 1px 1px 0 #660000;
+}

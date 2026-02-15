@@ -1,0 +1,81 @@
+/**
+ * TurnTimer Styles
+ *
+ * Story 5-3: 60초 타이머 (Sixty Second Timer)
+ * 픽셀 아트 스타일: 직각, 단색 배경
+ */
+
+.turn-timer {
+  display: flex;
+  align-items: center;
+  gap: var(--game-gap-sm);
+  padding: var(--game-gap-sm) var(--game-gap-lg);
+  border: 2px solid var(--game-border-base);
+  font-weight: bold;
+  transition: all 0.15s step-end;
+}
+
+/* 타이머 값 */
+.turn-timer__value {
+  font-size: var(--game-font-xl);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+/* 타이머 라벨 */
+.turn-timer__label {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+/* 기본 (60-31초): 밝은 색 */
+.turn-timer--normal {
+  background: var(--game-bg-base);
+  color: var(--game-text-primary);
+  border-color: var(--game-border-base);
+}
+
+/* 경고 (30-11초): 노란색 */
+.turn-timer--warning {
+  background: #3a3000;
+  color: #ffcc00;
+  border-color: #665500;
+}
+
+/* 위험 (10-0초): 빨간색 + 깜빡임 */
+.turn-timer--critical {
+  background: #3a0000;
+  color: #ff4444;
+  border-color: #660000;
+  animation: timer-blink 0.5s step-end infinite;
+}
+
+/* 깜빡임 */
+@keyframes timer-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* 접근성: 모션 감소 */
+@media (prefers-reduced-motion: reduce) {
+  .turn-timer,
+  .turn-timer--critical {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 640px) {
+  .turn-timer {
+    padding: 3px 10px;
+  }
+
+  .turn-timer__value {
+    font-size: 1.125rem;
+  }
+
+  .turn-timer__label {
+    font-size: 0.75rem;
+  }
+}

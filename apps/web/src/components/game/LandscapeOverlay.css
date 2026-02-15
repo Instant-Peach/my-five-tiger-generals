@@ -1,0 +1,121 @@
+/**
+ * LandscapeOverlay Styles
+ *
+ * Story 8-7: 반응형 UI (Responsive UI)
+ * AC5: 가로 모드 안내 오버레이
+ * AC8: 접근성 (role="alert", aria-label)
+ *
+ * z-index: 2000 (모든 UI 위, 설정 모달 등보다 아래)
+ * BEM 네이밍: landscape-overlay
+ */
+
+/* 오버레이 컨테이너 */
+.landscape-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  padding: 24px;
+
+  /* 페이드인 애니메이션 */
+  animation: landscape-overlay-fadein 0.3s ease-out;
+}
+
+/* 회전 아이콘 */
+.landscape-overlay__icon {
+  font-size: 3rem;
+  line-height: 1;
+  animation: landscape-overlay-rotate 2s ease-in-out infinite;
+}
+
+/* 메인 메시지 */
+.landscape-overlay__message {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+}
+
+/* 보조 메시지 */
+.landscape-overlay__sub-message {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 닫기 버튼 - 44x44px 터치 타겟 */
+.landscape-overlay__close-btn {
+  min-width: 120px;
+  min-height: 44px;
+  padding: 10px 24px;
+  background: transparent;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  color: #ffd700;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 8px;
+}
+
+.landscape-overlay__close-btn:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.landscape-overlay__close-btn:active {
+  background-color: rgba(255, 215, 0, 0.05);
+}
+
+.landscape-overlay__close-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* 페이드인 애니메이션 */
+@keyframes landscape-overlay-fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 회전 아이콘 애니메이션 */
+@keyframes landscape-overlay-rotate {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+}
+
+/* 접근성: 모션 감소 선호 시 애니메이션 비활성화 (AC8) */
+@media (prefers-reduced-motion: reduce) {
+  .landscape-overlay {
+    animation: none;
+  }
+
+  .landscape-overlay__icon {
+    animation: none;
+  }
+}

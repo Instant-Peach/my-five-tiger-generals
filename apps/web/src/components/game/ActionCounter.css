@@ -1,0 +1,103 @@
+/**
+ * ActionCounter Styles
+ *
+ * Story 8-2: 게임 HUD (Game HUD)
+ * 픽셀 아트 스타일: 사각형 도트, 직각
+ */
+
+.action-counter {
+  display: flex;
+  align-items: center;
+  gap: var(--game-gap-sm);
+}
+
+/* 라벨 */
+.action-counter__label {
+  font-size: var(--game-font-xs);
+  color: var(--game-text-muted);
+  font-weight: normal;
+}
+
+/* 도트 컨테이너 */
+.action-counter__dots {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+/* 개별 도트 (사각형 픽셀) */
+.action-counter__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 0; /* 픽셀: 사각형 */
+  transition: background-color 0.15s step-end, opacity 0.15s step-end;
+}
+
+/* 채워진 도트: 금색 */
+.action-counter__dot--filled {
+  background-color: var(--game-accent);
+  border: 1px solid var(--game-accent-dark);
+  opacity: 1;
+}
+
+/* 빈 도트: 어두운 색 */
+.action-counter__dot--empty {
+  background-color: var(--game-bg-raised);
+  border: 1px solid var(--game-border-strong);
+  opacity: 0.6;
+  animation: action-dot-fadeout 0.3s step-end;
+}
+
+/* 도트 소모 애니메이션 */
+@keyframes action-dot-fadeout {
+  0% {
+    background-color: var(--game-accent);
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+  100% {
+    background-color: var(--game-bg-raised);
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+/* 모바일 (430px 이하) */
+@media (max-width: 430px) {
+  .action-counter {
+    gap: 3px;
+  }
+
+  .action-counter__label {
+    font-size: var(--game-font-2xs);
+  }
+
+  .action-counter__dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .action-counter__dots {
+    gap: 2px;
+  }
+}
+
+/* 데스크톱 (1024px 이상) */
+@media (min-width: 1024px) {
+  .action-counter__label {
+    font-size: 0.7rem;
+  }
+
+  .action-counter__dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .action-counter__dots {
+    gap: var(--game-gap-sm);
+  }
+}

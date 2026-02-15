@@ -1,0 +1,214 @@
+/**
+ * GeneralStatsPanel Styles
+ *
+ * Story 8-3: 장수 정보 패널 (General Info Panel)
+ *
+ * 사이드바 내부 (side-panel__general-slot)에 인라인 배치.
+ * BEM 네이밍 컨벤션
+ */
+
+/* 패널 컨테이너 — 사이드바 내부 인라인 */
+.general-stats-panel {
+  padding: var(--game-gap-md);
+  color: var(--game-text-primary);
+  background-color: var(--game-bg-base);
+}
+
+/* 패널 헤더 */
+.general-stats-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--game-gap-md);
+}
+
+.general-stats-panel__header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--game-gap-md);
+}
+
+/* 장수 초상화 (원형) */
+.general-stats-panel__portrait {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.general-stats-panel__portrait-emoji {
+  font-size: 1.2rem;
+}
+
+/* 장수 이름 */
+.general-stats-panel__name {
+  font-weight: bold;
+  font-size: var(--game-font-md);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* 플레이어 정보 행 */
+.general-stats-panel__player-info {
+  display: flex;
+  align-items: center;
+  gap: var(--game-gap-sm);
+}
+
+.general-stats-panel__player-icon {
+  font-size: var(--game-font-sm);
+}
+
+.general-stats-panel__player-label {
+  font-size: var(--game-font-sm);
+  font-weight: 500;
+}
+
+/* OUT 배지 */
+.general-stats-panel__out-badge {
+  background-color: #dc2626;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: var(--game-gap-sm) 0;
+  margin-bottom: var(--game-gap-md);
+}
+
+/* 교전 배지 */
+.general-stats-panel__engaged-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--game-gap-sm);
+  padding: var(--game-gap-sm) var(--game-gap-md);
+  margin-bottom: var(--game-gap-sm);
+  background: rgba(255, 68, 68, 0.15);
+  border: 1px solid #ff4444;
+  font-size: var(--game-font-sm);
+}
+
+.general-stats-panel__engaged-icon {
+  font-size: var(--game-font-sm);
+}
+
+.general-stats-panel__engaged-text {
+  color: #ff6666;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+
+/* 목숨 표시 */
+.general-stats-panel__lives {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--game-gap-md);
+  padding: var(--game-gap-sm) 0;
+  margin-bottom: var(--game-gap-sm);
+}
+
+.general-stats-panel__lives-label {
+  font-size: var(--game-font-xs);
+  color: var(--game-text-muted);
+}
+
+.general-stats-panel__lives-dots {
+  display: flex;
+  gap: var(--game-gap-sm);
+}
+
+.general-stats-panel__life-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--game-bg-raised);
+  border: 1px solid var(--game-border-strong);
+}
+
+.general-stats-panel__life-dot--filled {
+  background: #ff6666;
+  border-color: #cc4444;
+}
+
+/* 스탯 그리드 */
+.general-stats-panel__stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--game-gap-md);
+}
+
+/* 개별 스탯 셀 */
+.general-stats-panel__stat {
+  background-color: var(--game-bg-overlay);
+  padding: var(--game-gap-md);
+}
+
+/* 이동력 (전체 너비) */
+.general-stats-panel__stat--full-width {
+  grid-column: span 2;
+}
+
+.general-stats-panel__stat-label {
+  font-size: var(--game-font-sm);
+  color: var(--game-text-muted);
+}
+
+.general-stats-panel__stat-value {
+  font-size: var(--game-font-lg);
+  font-weight: bold;
+}
+
+/* 병력 셀 (애니메이션) */
+.general-stats-panel__stat--troops {
+  transition: background-color 0.2s ease;
+}
+
+.general-stats-panel__stat--troops-flash-red {
+  background-color: #dc2626;
+}
+
+.general-stats-panel__stat--troops-flash-green {
+  background-color: #16a34a;
+}
+
+.general-stats-panel__stat--troops-zero {
+  background-color: #7f1d1d;
+}
+
+/* 병력 바 영역 */
+.general-stats-panel__troop-bar {
+  margin-top: var(--game-gap-md);
+}
+
+.general-stats-panel__troop-bar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--game-gap-sm);
+}
+
+.general-stats-panel__troop-bar-label {
+  font-size: var(--game-font-xs);
+  color: var(--game-text-muted);
+}
+
+.general-stats-panel__troop-bar-percentage {
+  font-size: var(--game-font-xs);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--game-gap-sm);
+}
+
+.general-stats-panel__troop-bar-track {
+  height: 10px;
+  background-color: var(--game-bg-overlay);
+  overflow: hidden;
+}
+
+.general-stats-panel__troop-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}

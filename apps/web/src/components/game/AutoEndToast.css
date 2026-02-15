@@ -1,0 +1,75 @@
+/**
+ * AutoEndToast Styles
+ *
+ * Story 5-4: 타이머 자동 종료 (Timer Auto End)
+ *
+ * AC2: 자동 종료 알림 스타일
+ * - 위치: 화면 상단 중앙
+ * - 색상: 빨간색/주황색 배경 (경고 느낌)
+ * - 애니메이션: 2-3초 후 fade out
+ */
+
+.auto-end-toast {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(220, 38, 38, 0.95);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 표시 상태 */
+.auto-end-toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* 숨김 상태 (fade out) */
+.auto-end-toast--hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+/* 아이콘 스타일 */
+.auto-end-toast__icon {
+  font-size: 1.25rem;
+}
+
+/* 메시지 스타일 */
+.auto-end-toast__message {
+  font-size: 0.95rem;
+}
+
+/* 접근성: 모션 감소 선호 시 애니메이션 비활성화 */
+@media (prefers-reduced-motion: reduce) {
+  .auto-end-toast {
+    transition: none !important;
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 480px) {
+  .auto-end-toast {
+    top: 60px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
+
+  .auto-end-toast__icon {
+    font-size: 1.1rem;
+  }
+
+  .auto-end-toast__message {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,207 @@
+/**
+ * MobileGeneralDrawer Styles
+ *
+ * 모바일 전용 장수 정보 하단 드로어
+ * 픽셀 아트 스타일: 직각, 고전 게임 색감
+ *
+ * BEM 네이밍: mobile-general-drawer
+ */
+
+/* 데스크톱/태블릿에서 숨김 */
+@media (min-width: 431px) {
+  .mobile-general-drawer {
+    display: none;
+  }
+}
+
+/* 드로어 컨테이너 */
+.mobile-general-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  animation: drawer-fadein 0.15s step-end;
+}
+
+/* 백드롭 */
+.mobile-general-drawer__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* 드로어 본체 */
+.mobile-general-drawer__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a1a36;
+  border-top: 3px solid;
+  padding: 8px 16px 16px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  max-height: 50vh;
+  overflow-y: auto;
+  animation: drawer-slideup 0.2s ease-out;
+}
+
+/* 드래그 핸들 */
+.mobile-general-drawer__handle {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 8px;
+}
+
+.mobile-general-drawer__handle-bar {
+  width: 36px;
+  height: 4px;
+  background: #4a4a6a;
+}
+
+/* 헤더 */
+.mobile-general-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.mobile-general-drawer__name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-general-drawer__portrait {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border: 2px solid #3a3a5c;
+}
+
+.mobile-general-drawer__name {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffd700;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.mobile-general-drawer__player-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.mobile-general-drawer__close {
+  color: #8888aa;
+  background: none;
+  border: 2px solid #4a4a6a;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.mobile-general-drawer__close:hover {
+  color: white;
+  background-color: #4a4a6a;
+}
+
+.mobile-general-drawer__close:focus-visible {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+}
+
+/* OUT 배지 */
+.mobile-general-drawer__out-badge {
+  background-color: #cc2222;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 4px 0;
+  border: 1px solid #991111;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+
+/* 스탯 그리드 */
+.mobile-general-drawer__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.mobile-general-drawer__stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: #1e1e3a;
+  padding: 6px;
+  border: 1px solid #3a3a5c;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #e0d8c0;
+}
+
+/* 병력 바 */
+.mobile-general-drawer__troop-bar {
+  margin-top: 4px;
+}
+
+.mobile-general-drawer__troop-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #8888aa;
+  margin-bottom: 4px;
+}
+
+.mobile-general-drawer__troop-track {
+  height: 10px;
+  background-color: #1e1e3a;
+  border: 1px solid #3a3a5c;
+  overflow: hidden;
+}
+
+.mobile-general-drawer__troop-fill {
+  height: 100%;
+  transition: width 0.2s step-end;
+}
+
+/* 애니메이션 */
+@keyframes drawer-slideup {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes drawer-fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 모션 감소 */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-general-drawer,
+  .mobile-general-drawer__content,
+  .mobile-general-drawer__troop-fill {
+    animation: none !important;
+    transition: none !important;
+  }
+}

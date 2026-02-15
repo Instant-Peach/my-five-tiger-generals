@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@source "../index.html";
+@source "./**/*.{js,ts,jsx,tsx}";
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+}

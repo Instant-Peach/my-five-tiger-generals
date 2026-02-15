@@ -1,0 +1,215 @@
+/**
+ * SettingsModal Styles
+ *
+ * Story 8-5: 설정 메뉴 (Settings Menu)
+ * BEM 네이밍: settings-modal
+ * z-index: 9997 (TacticPanel(9998)/GeneralStatsPanel(9999)보다 아래)
+ */
+
+/* 전체 화면 오버레이 */
+.settings-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9997;
+  animation: settings-fade-in 0.2s ease-out;
+}
+
+/* 모달 박스 */
+.settings-modal {
+  max-width: 400px;
+  width: 85%;
+  border-radius: 12px;
+  background-color: #2d2d3d;
+  border: 2px solid #4a4a5a;
+  color: #ffffff;
+  box-shadow:
+    0 8px 16px -2px rgba(0, 0, 0, 0.3),
+    0 4px 8px -2px rgba(0, 0, 0, 0.2);
+  animation: settings-modal-in 0.2s ease-out;
+  overflow: hidden;
+}
+
+/* 모달 헤더 */
+.settings-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #4a4a5a;
+}
+
+/* 타이틀 */
+.settings-modal__title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+/* 닫기 버튼 */
+.settings-modal__close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.settings-modal__close-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.settings-modal__close-btn:active {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 설정 항목 리스트 */
+.settings-modal__list {
+  padding: 12px 20px;
+}
+
+/* 설정 항목 행 */
+.settings-modal__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.settings-modal__item-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f0f0f0;
+}
+
+/* 토글 스위치 */
+.settings-modal__toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-width: 64px;
+  height: 32px;
+  padding: 2px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: inherit;
+}
+
+.settings-modal__toggle--on {
+  background-color: #22c55e;
+}
+
+.settings-modal__toggle--off {
+  background-color: #4a4a5a;
+}
+
+/* 토글 노브 */
+.settings-modal__toggle-knob {
+  position: absolute;
+  top: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  transition: left 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.settings-modal__toggle--on .settings-modal__toggle-knob {
+  left: calc(100% - 30px);
+}
+
+.settings-modal__toggle--off .settings-modal__toggle-knob {
+  left: 2px;
+}
+
+/* 토글 텍스트 (ON/OFF) */
+.settings-modal__toggle-text {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: auto;
+  padding-right: 8px;
+  user-select: none;
+}
+
+.settings-modal__toggle--on .settings-modal__toggle-text {
+  margin-left: 8px;
+  margin-right: auto;
+  padding-right: 0;
+}
+
+/* 하단 안내 */
+.settings-modal__footer {
+  padding: 12px 20px 16px;
+  border-top: 1px solid #4a4a5a;
+}
+
+.settings-modal__footer-text {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+}
+
+/* 페이드인 애니메이션 */
+@keyframes settings-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 모달 등장 애니메이션 */
+@keyframes settings-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 430px) {
+  .settings-modal {
+    width: 85%;
+  }
+}
+
+/* 데스크톱 */
+@media (min-width: 1024px) {
+  .settings-modal {
+    max-width: 400px;
+  }
+}
+
+/* Story 8-7 AC8: 모션 감소 선호 시 애니메이션 비활성화 */
+@media (prefers-reduced-motion: reduce) {
+  .settings-modal__overlay,
+  .settings-modal {
+    animation: none;
+  }
+}

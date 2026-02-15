@@ -1,0 +1,131 @@
+/**
+ * SurrenderConfirmModal Styles
+ *
+ * Story 6-5: 항복 (Surrender)
+ * 픽셀 아트 스타일: 직각, 고전 게임 색감
+ * z-index: 150
+ */
+
+/* 오버레이 */
+.surrender-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 150;
+  animation: surrender-fade-in 0.15s step-end;
+}
+
+/* 모달 박스 */
+.surrender-modal {
+  max-width: 360px;
+  width: 85%;
+  padding: 28px 32px;
+  text-align: center;
+  background-color: #1a1a36;
+  border: 3px solid #cc2222;
+  color: #e0d8c0;
+  box-shadow: 4px 4px 0 #660000;
+  animation: surrender-modal-in 0.15s ease-out;
+}
+
+/* 메시지 */
+.surrender-modal-message {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 24px 0;
+  color: #e0d8c0;
+  letter-spacing: 0.05em;
+}
+
+/* 버튼 컨테이너 */
+.surrender-modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* 공통 버튼 */
+.surrender-modal-confirm,
+.surrender-modal-cancel {
+  min-width: 80px;
+  min-height: 44px;
+  padding: 10px 24px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 3px solid;
+  cursor: pointer;
+  transition: all 0.1s step-end;
+  letter-spacing: 0.05em;
+}
+
+/* 확인 (위험) */
+.surrender-modal-confirm {
+  background-color: #cc2222;
+  border-color: #991111;
+  color: #ffffff;
+  box-shadow: 3px 3px 0 #660000;
+}
+
+.surrender-modal-confirm:hover {
+  background-color: #aa1111;
+}
+
+.surrender-modal-confirm:active {
+  box-shadow: 1px 1px 0 #660000;
+  transform: translate(2px, 2px);
+}
+
+/* 취소 (중립) */
+.surrender-modal-cancel {
+  background-color: #2a2a4a;
+  border-color: #4a4a6a;
+  color: #e0d8c0;
+  box-shadow: 3px 3px 0 #1a1a2e;
+}
+
+.surrender-modal-cancel:hover {
+  background-color: #3a3a5c;
+}
+
+.surrender-modal-cancel:active {
+  box-shadow: 1px 1px 0 #1a1a2e;
+  transform: translate(2px, 2px);
+}
+
+/* 페이드인 */
+@keyframes surrender-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 모달 등장 */
+@keyframes surrender-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 접근성: 모션 감소 */
+@media (prefers-reduced-motion: reduce) {
+  .surrender-modal-overlay,
+  .surrender-modal {
+    animation: none !important;
+  }
+
+  .surrender-modal-confirm,
+  .surrender-modal-cancel {
+    transition: none !important;
+  }
+}
