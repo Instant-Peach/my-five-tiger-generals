@@ -29,6 +29,8 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - run: pnpm --filter @ftg/game-core build
+      - run: pnpm --filter @ftg/game-renderer build
       - run: pnpm --filter @ftg/web build
 
       - uses: actions/upload-pages-artifact@v3
